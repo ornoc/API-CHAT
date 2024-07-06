@@ -1,0 +1,30 @@
+{
+  "name": "api-chat",
+  "version": "1.0.0",
+  "description": "oii",
+  "main": "index.js",
+"scripts": {
+  "start": "node ./bin/server.js",
+ "test": "echo \"Error: no test specified\" && exit 1"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ornoc/API-CHAT.git"
+  },
+  "keywords": [
+    "NODE",
+    "CHAT",
+    "API"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ornoc/API-CHAT/issues"
+  },
+  "homepage": "https://github.com/ornoc/API-CHAT#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0"
+  }
+}
