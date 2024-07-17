@@ -2,7 +2,7 @@ const { MongoClient, Db} = require("mongodb");
 
 let singleton;
 
-/**
+/*
  * Connect to the database
  * @returns {Promise<Db>}
  */
