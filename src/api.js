@@ -13,7 +13,7 @@ app.get("/sobre", (req, res) => {
     res.status(200).send({
         "nome": "API CHAT",
         "versão": "0.1.0",
-        "autor": "Sarah"
+        "autor": "Caio"
     })
 });
 
