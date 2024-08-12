@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('imagens/gremio.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container, .container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 878px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.campo {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 176px;
+    background: url('imagens/campo1.png') no-repeat center center;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 750px;
+    margin-bottom: 10px;
+}
+
+.campo input, .campo2 input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%;
+    margin-right: 10px;
+}
+
+.campo button, .campo2 button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    width: 30%;
+}
+
+.campo button:hover, .campo2 button:hover {
+    background-color: #0056b3;
+}
+
+.campo2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 800px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    width: 100%;
+    background-color: rgb(92 150 255 / 60%);
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.mensagens {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    height: calc(100vh - 250px); /* Ajuste de altura */
+}
+
+.mensagem {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    box-sizing: border-box;
+    position: relative;
+    clear: both;
+}
+
+.enviada {
+    background-color: #7da794;
+    float: right;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.recebida {
+    background-color: #f8d7da;
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.mensagem:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+.enviada:before {
+    right: -20px;
+    border-left-color: #7da794;
+}
+
+.recebida:before {
+    left: -20px;
+    border-right-color: #f8d7da;
+}
+
+.sair {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.salas {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.salas li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.salas li:hover {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+}
+
+.salas .nome-sala {
+    font-weight: bold;
+    margin-bottom: 5px;  
+}
+
+.salas .descricao-sala {
+    font-size: 12px;
+    color: #555;
+}
+
+.publica::before {
+    content: '';
+    margin-right: 10px;
+}
+
+.privada::before {
+    content: '🔒';
+    margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    .campo, .campo2 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo input, .campo button, .campo2 input, .campo2 button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .mensagem {
+        max-width: 100%;
+    }
+
+    .sair {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .salas li {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
