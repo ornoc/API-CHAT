@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Entrar -->
+    <div class="container" id="telaEntrar">
+        <div class="campo">
+            <input type="text" placeholder="Nome" id="nome">
+            <button onclick="entrar()">Entrar</button>
+        </div>
+    </div>
+
+    <!--Escolher Sala -->
+    <div class="container" id="telaEscolherSala" style="display:none;">
+        <ul class="salas">
+            <li onclick="entrarSala('Letterboxd', 'Salinha pros fans de filmes #cinefilos🎬📽', true)" class="privada">
+                <span class="nome-sala">Letterboxd</span>
+                <span class="descricao-sala">Salinha pros fans de filmes #cinefilos🎬📽</span>
+            </li>
+            <li onclick="entrarSala('Conversando aqui', 'Gente não sei usar isso aqui direito')" class="publica">
+                <span class="nome-sala">Conversando aqui</span>
+                <span class="descricao-sala">Gente não sei usar isso aqui direito</span>
+            </li>
+            <li onclick="entrarSala('Futebas', 'Baguncinha pra jogar no ginasio um futebas sem compromisso😅', true)" class="privada">
+                <span class="nome-sala">Futebas</span>
+                <span class="descricao-sala">Baguncinha pra jogar no ginasio um futebas sem compromisso😅</span>
+            </li>
+            <li onclick="entrarSala('los hermanos', 'Vamo falar sobre o quão BRUTAL é Los hermanos')" class="publica">
+                <span class="nome-sala">los hermanos</span>
+                <span class="descricao-sala">Vamo falar sobre o quão BRUTAL é Los hermanos</span>
+            </li>
+        </ul>
+    </div>
+
+    <!--Chat -->
+    <div class="container2" id="telaChat" style="display:none;">
+        <div class="header">
+            <h2 id="nomeSala"></h2>
+            <p id="descricaoSala"></p>
+            <button class="sair" onclick="sairChat()">Sair</button>
+        </div>
+        <div class="mensagens" id="mensagens">
+            <!-- mensagens -->
+        </div>
+        <div class="campo2">
+            <input type="text" placeholder="Digite..." id="mensagemInput">
+            <button onclick="enviarMensagem()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
