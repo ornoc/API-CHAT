@@ -199,6 +199,7 @@ body {
     margin-right: 10px;
 }
 
+
 @media (max-width: 600px) {
     .campo, .campo2 {
         flex-direction: column;
