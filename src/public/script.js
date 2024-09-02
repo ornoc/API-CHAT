@@ -1,8 +1,40 @@
-function entrar() {
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoEntrar = document.getElementById('botaoEntrar');
+    const botaoEnviar = document.getElementById('botaoEnviar');
+
+    botaoEntrar.addEventListener('click', entrar);
+    botaoEnviar.addEventListener('click', enviarMensagem);
+});
+
+async function registrarUsuario(nick) {
+    try {
+        const response = await fetch('http://localhost:5000/api/usuario/entrar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ nick })
+        });
+
+        if (!response.ok) throw new Error('Erro ao registrar usuário');
+        
+        const result = await response.json();
+        console.log('Usuário registrado:', result);
+        return result;
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao registrar usuário. Verifique o console para mais detalhes.');
+    }
+}
+
+async function entrar() {
     const nome = document.getElementById('nome').value;
     if (nome) {
-        document.getElementById('telaEntrar').style.display = 'none';
-        document.getElementById('telaEscolherSala').style.display = 'block';
+        const resultado = await registrarUsuario(nome);
+        if (resultado) {
+            document.getElementById('telaEntrar').style.display = 'none';
+            document.getElementById('telaEscolherSala').style.display = 'block';
+        }
     } else {
         alert("Por favor, insira seu nome.");
     }
@@ -11,7 +43,7 @@ function entrar() {
 function entrarSala(nome, descricao, isPrivada) {
     if (isPrivada) {
         const senha = prompt("Esta sala é privada. Por favor, insira a senha:");
-        if (senha !== "123") {  //senha
+        if (senha !== "123") {
             alert("Senha incorreta!");
             return;
         }
@@ -34,7 +66,6 @@ function enviarMensagem() {
         mensagemElemento.innerText = mensagemTexto;
         mensagensDiv.appendChild(mensagemElemento);
 
-        // resposta automatica
         setTimeout(() => {
             const respostaElemento = document.createElement('div');
             respostaElemento.className = 'mensagem recebida';
