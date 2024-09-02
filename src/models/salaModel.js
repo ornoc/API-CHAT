@@ -1,15 +1,23 @@
-const db = require("./db");
+// src/models/salaModel.js
+const db = require('../db');
 
-function listarSalas() {
-    return db.findAll("salas");
-}
+exports.listarSalas = async () => {
+    return await db.findAll("salas");
+};
 
-/*
- * @param {string} nome
- * @returns 
- */
-function criarSala(nome) {
-    return db.insertOne("salas", { nome });
-}
+exports.buscarSala = async (idsala) => {
+    return db.findOne("salas", idsala);
+};
 
-module.exports = { listarSalas, criarSala }
+exports.atualizarMensagens = async (sala) => {
+    return await db.updateOne("salas", sala, { _id: sala._id });
+};
+
+exports.buscarMensagens = async (idsala, timestamp) => {
+    let sala = await this.buscarSala(idsala);
+    if (sala.msgs) {
+        let msgs = sala.msgs.filter(msg => msg.timestamp >= timestamp);
+        return msgs;
+    }
+    return [];
+};
