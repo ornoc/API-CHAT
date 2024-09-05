@@ -1,5 +1,4 @@
-
-app.use('/', router.get('/', (req,res, next) => {
+/*app.use('/', router.get('/', (req,res, next) => {
     res.status(200).send("<h1>API - CHAT</h1>");
 }));
 
@@ -11,4 +10,4 @@ app.use("/",router.get("/sobre", (req, res, next) => {
     })
 }));
 
-module.exports = app;
+module.exports = app;*/
