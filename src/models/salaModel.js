@@ -1,4 +1,3 @@
-// src/models/salaModel.js
 const db = require('./db');
 
 exports.listarSalas = async () => {
